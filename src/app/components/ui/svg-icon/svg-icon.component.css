@@ -1,0 +1,9 @@
+:host {
+    height: 100%;
+    width: 100%;
+    fill: blue;
+    color: blue;
+    -webkit-mask-size: contain;
+    -webkit-mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+  }

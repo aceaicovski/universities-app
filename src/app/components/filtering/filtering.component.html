@@ -1,0 +1,33 @@
+<div class="flex items-center justify-between gap-8">
+  <div class="h-full flex items-center gap-8">
+    <div class="h-full shadow border border-gray-300 rounded-lg">
+      <select
+        [(ngModel)]="selectedCountry"
+        class="w-[17.5rem] h-full px-3.5 py-2.5 mr-3 bg-white rounded-lg justify-start items-center gap-2 inline-flex cursor-pointer focus:outline-none"
+      >
+        <option value="" class="text-stone-500">Select Country</option>
+        <option *ngFor="let country of countries">{{ country }}</option>
+      </select>
+    </div>
+    <input
+      class="min-w-[17.5rem] px-3.5 py-2.5 bg-white rounded-lg shadow border border-gray-300 justify-start items-center gap-2 inline-flex focus:ring-none placeholder:text-stone-500"
+      placeholder="Name"
+      [(ngModel)]="filterName"
+      (input)="setFilterName()"
+    />
+  </div>
+  <div class="flex items-center gap-8">
+    <button
+      class="justify-center items-center gap-2.5 inline-flex text-center text-gray-600 text-[17px] font-semibold font-['SF Pro Text'] leading-snug"
+      (click)="resetFilters()"
+    >
+      Clear
+    </button>
+    <button
+      class="px-5 py-[13px] bg-blue-600 bg-opacity-20 rounded-[10px] justify-center items-center gap-2.5 inline-flex text-center text-blue-600 text-[17px] font-semibold font-['SF Pro Text'] leading-snug"
+      (click)="filterUniversities()"
+    >
+      Get Started
+    </button>
+  </div>
+</div>

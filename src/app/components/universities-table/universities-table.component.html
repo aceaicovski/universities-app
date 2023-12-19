@@ -1,0 +1,66 @@
+<table class="w-full">
+  <thead>
+    <tr class="border-b border-t border-gray-200">
+      <th
+        class="text-gray-500 text-sm font-normal font-['Inter'] leading-normal px-4 py-2 text-left"
+      >
+        Name
+      </th>
+      <th
+        class="text-gray-500 text-sm font-normal font-['Inter'] leading-normal px-4 py-2 text-left"
+      >
+        Country
+      </th>
+      <th
+        class="text-gray-500 text-sm font-normal font-['Inter'] leading-normal px-4 py-2 text-left"
+      >
+        State
+      </th>
+      <th
+        class="text-gray-500 text-sm font-normal font-['Inter'] leading-normal px-4 py-2 text-left"
+      >
+        URL
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      *ngFor="let university of universities | async"
+      class="border-b border-gray-200 hover:bg-gray-50"
+    >
+      <td class="px-4 py-2">
+        <p
+          class="text-gray-800 text-sm font-normal font-['Inter'] leading-normal"
+        >
+          {{ university.name }}
+        </p>
+      </td>
+      <td class="px-4 py-2">
+        <p
+          class="text-gray-800 text-sm font-normal font-['Inter'] leading-normal"
+        >
+          {{ university.country }}
+        </p>
+      </td>
+      <td class="px-4 py-2">
+        <p
+          class="text-gray-800 text-sm font-normal font-['Inter'] leading-normal"
+        >
+          {{ university["state-province"] || "-" }}
+        </p>
+      </td>
+      <td class="px-4 py-2 flex items-center gap-3 cursor-pointer">
+        <a
+          href="{{ university.web_pages[0] }}"
+          target="_blank"
+          class="text-blue-600 text-sm font-normal font-['Inter'] leading-normal"
+          >{{ university.web_pages[0] }}</a
+        >
+        <app-svg-icon
+          src="assets/external-link.svg"
+          class="h-4 w-4"
+        ></app-svg-icon>
+      </td>
+    </tr>
+  </tbody>
+</table>
