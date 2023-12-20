@@ -1,17 +1,22 @@
-<div class="flex items-center justify-between gap-8">
-  <div class="h-full flex items-center gap-8">
-    <p-dropdown
-      [options]="countries"
-      [(ngModel)]="selectedCountry"
-      placeholder="Select Country"
-      class="relative h-full shadow rounded-lg w-[17.5rem]"
-    >
-      <ng-template *ngFor="let country of countries">
-        <span class="text-zinc-800 text-base font-normal font-['Montserrat']">{{
-          country
-        }}</span>
-      </ng-template>
-    </p-dropdown>
+<div class="flex items-end justify-between gap-8">
+  <div class="h-full flex items-end gap-8">
+    <div class="flex flex-col gap-2">
+      <span id="country-filter">Countries</span>
+      <p-dropdown
+        ariaLabelledBy="country-filter"
+        [options]="countries"
+        [(ngModel)]="selectedCountry"
+        placeholder="Select Country"
+        class="relative h-full shadow rounded-lg w-[17.5rem]"
+      >
+        <ng-template *ngFor="let country of countries">
+          <span
+            class="text-zinc-800 text-base font-normal font-['Montserrat']"
+            >{{ country }}</span
+          >
+        </ng-template>
+      </p-dropdown>
+    </div>
     <span class="p-input-icon-left">
       <i class="pi pi-search"></i>
       <input

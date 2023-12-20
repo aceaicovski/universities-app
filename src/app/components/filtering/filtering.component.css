@@ -35,6 +35,5 @@
 }
 
 ::ng-deep .p-inputtext.name {
-  position: relative;
   padding: 17px 14px;
 }
