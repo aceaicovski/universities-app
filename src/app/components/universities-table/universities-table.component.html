@@ -49,17 +49,29 @@
           {{ university["state-province"] || "-" }}
         </p>
       </td>
-      <td class="px-4 py-2 flex items-center gap-3 cursor-pointer">
-        <a
-          href="{{ university.web_pages[0] }}"
-          target="_blank"
-          class="text-blue-600 text-sm font-normal font-['Inter'] leading-normal"
-          >{{ university.web_pages[0] }}</a
+      <td class="px-4 py-2">
+        <div
+          class="inline-flex items-center gap-3 cursor-pointer border-b border-blue-500 border-opacity-20"
         >
-        <app-svg-icon
-          src="assets/external-link.svg"
-          class="h-4 w-4"
-        ></app-svg-icon>
+          <a
+            href="{{ university.web_pages[0] }}"
+            target="_blank"
+            class="text-blue-600 text-sm font-normal font-['Inter'] leading-normal"
+            >{{ university.web_pages[0] }}</a
+          >
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M9 2V3H12.293L6.02344 9.27344L6.72656 9.97656L13 3.70703V7H14V2H9ZM4 4C2.89453 4 2 4.89453 2 6V12C2 13.1055 2.89453 14 4 14H10C11.1055 14 12 13.1055 12 12V7L11 8V12C11 12.5508 10.5508 13 10 13H4C3.44922 13 3 12.5508 3 12V6C3 5.44922 3.44922 5 4 5H8L9 4H4Z"
+              fill="#4094F7"
+            />
+          </svg>
+        </div>
       </td>
     </tr>
   </tbody>

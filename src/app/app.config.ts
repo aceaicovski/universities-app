@@ -9,7 +9,6 @@ import {
   withFetch,
 } from '@angular/common/http';
 import { provideAnimations } from '@angular/platform-browser/animations';
-import { provideAngularSvgIcon } from 'angular-svg-icon';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -18,6 +17,5 @@ export const appConfig: ApplicationConfig = {
     importProvidersFrom(HttpClientModule),
     provideHttpClient(withFetch()),
     provideAnimations(),
-    provideAngularSvgIcon(),
   ],
 };

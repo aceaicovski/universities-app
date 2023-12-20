@@ -1,30 +1,38 @@
 <div class="flex items-center justify-between gap-8">
   <div class="h-full flex items-center gap-8">
-    <div class="h-full shadow border border-gray-300 rounded-lg">
-      <select
-        [(ngModel)]="selectedCountry"
-        class="w-[17.5rem] h-full px-3.5 py-2.5 mr-3 bg-white rounded-lg justify-start items-center gap-2 inline-flex cursor-pointer focus:outline-none"
-      >
-        <option value="" class="text-stone-500">Select Country</option>
-        <option *ngFor="let country of countries">{{ country }}</option>
-      </select>
-    </div>
-    <input
-      class="min-w-[17.5rem] px-3.5 py-2.5 bg-white rounded-lg shadow border border-gray-300 justify-start items-center gap-2 inline-flex focus:ring-none placeholder:text-stone-500"
-      placeholder="Name"
-      [(ngModel)]="filterName"
-      (input)="setFilterName()"
-    />
+    <p-dropdown
+      [options]="countries"
+      [(ngModel)]="selectedCountry"
+      placeholder="Select Country"
+      class="relative h-full shadow rounded-lg w-[17.5rem]"
+    >
+      <ng-template *ngFor="let country of countries">
+        <span class="text-zinc-800 text-base font-normal font-['Montserrat']">{{
+          country
+        }}</span>
+      </ng-template>
+    </p-dropdown>
+    <span class="p-input-icon-left">
+      <i class="pi pi-search"></i>
+      <input
+        type="text"
+        pInputText
+        placeholder="Name"
+        class="name w-[17.5rem] px-4 py-2.5 bg-white rounded-lg shadow border border-gray-300 justify-start items-center gap-2 inline-flex focus:ring-none"
+        [(ngModel)]="filterName"
+        (input)="setFilterName()"
+      />
+    </span>
   </div>
   <div class="flex items-center gap-8">
     <button
-      class="justify-center items-center gap-2.5 inline-flex text-center text-gray-600 text-[17px] font-semibold font-['SF Pro Text'] leading-snug"
+      class="justify-center items-center inline-flex text-center text-gray-600 hover:text-gray-800 text-[17px] font-medium font-['SF Pro Text'] leading-snug"
       (click)="resetFilters()"
     >
       Clear
     </button>
     <button
-      class="px-5 py-[13px] bg-blue-600 bg-opacity-20 rounded-[10px] justify-center items-center gap-2.5 inline-flex text-center text-blue-600 text-[17px] font-semibold font-['SF Pro Text'] leading-snug"
+      class="px-5 py-[18px] bg-blue-600 bg-opacity-20 rounded-[10px] justify-center items-center inline-flex text-center text-blue-600 text-[17px] font-medium font-['SF Pro Text'] leading-snug"
       (click)="filterUniversities()"
     >
       Get Started

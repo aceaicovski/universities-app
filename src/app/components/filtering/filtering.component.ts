@@ -2,11 +2,13 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { UniversitiesService } from '../../services/universities.service';
+import { DropdownModule } from 'primeng/dropdown';
+import { InputTextModule } from 'primeng/inputtext';
 
 @Component({
   selector: 'app-filtering',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, DropdownModule, InputTextModule],
   templateUrl: './filtering.component.html',
   styleUrl: './filtering.component.css',
 })
@@ -23,30 +25,26 @@ export class FilteringComponent implements OnInit {
   }
 
   public loadCountries(): void {
-    console.log('Countries Loaded!');
     this.countries = this.universitiesService.countriesList;
   }
 
   public setFilterName() {
-    console.log(this.filterName);
     if (!this.filterName) {
       this.filterUniversities();
     }
   }
 
-  public selectCountry() {
-    console.log(this.selectedCountry);
-    this.universitiesService.setCountry(this.selectedCountry);
-  }
-
   public resetFilters() {
+    if (!this.selectedCountry && !this.filterName) {
+      return;
+    }
+
     this.selectedCountry = '';
     this.filterName = '';
     this.filterUniversities();
   }
 
   public filterUniversities() {
-    console.log('Filtered list click!');
     this.universitiesService.getFilteredUniversities(
       this.selectedCountry,
       this.filterName.toLowerCase()
